@@ -15,10 +15,12 @@ namespace MailOrderPharmacy_DrugService.Controllers
     //[Authorize]
     public class DrugsController : ControllerBase
     {
+        readonly log4net.ILog _log4net;
         IDrug _con;
         public  DrugsController(IDrug con)
         {
             _con = con;
+            _log4net = log4net.LogManager.GetLogger(typeof(DrugsController));
         }
         // GET: api/<DrugsController>
         [HttpGet]
